@@ -27,11 +27,11 @@ export class AuthService {
   login(username:string,password:string){
     const authData:Authdata={username:username,password:password};
     this.http.post("http://localhost:3000/login",authData).subscribe((response:any)=>{
-      console.log("login",response);
+     
       this.authtoken=response["token"];
-      console.log("login",response["token"]);
+      
 
-      // let authtoken=response['token']
+   
       localStorage.setItem('username',JSON.stringify(username));
       if(response){
         this.router.navigate(['video'])

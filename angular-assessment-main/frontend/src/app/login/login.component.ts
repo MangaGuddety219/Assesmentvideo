@@ -30,7 +30,6 @@ export class LoginComponent {
     const loginData = this.LoginForm.value;
 
     this.authService.login(loginData.Username!,loginData.password!)
-    // this.router.navigate(['videos']);
 
 
   }

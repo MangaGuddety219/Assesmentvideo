@@ -32,9 +32,7 @@ ngOnInit():void{
 pauseVideo(videoplayer:any)
 {
   videoplayer.nativeElement.play();
-  // this.startedPlay = true;
-  // if(this.startedPlay == true)
-  // {
+  
      setTimeout(() =>
      {
       videoplayer.nativeElement.pause();
@@ -46,11 +44,6 @@ pauseVideo(videoplayer:any)
   // }
 }
 
-// closebutton(videoplayer:any){
-//   this.show = !this.show;
-//   videoplayer.nativeElement.play();
-// }
-
 getvideolinks(){
   this.headers = new HttpHeaders({
     'Authorization': `Bearer ${this.serv.authtoken}`
@@ -60,7 +53,7 @@ getvideolinks(){
   this.http.get("http://localhost:3000/api/videos",{ 'headers': this.headers }).subscribe((data:any)=>{
     console.log("data",data);
     this.videos=data.videos;
-    console.log("manga",this.videos);
+    
 
   })
 }
@@ -77,7 +70,7 @@ video(id:any){
       return eachItem
     }
   });
-  // console.log(this.videos);
+
   console.log("newarray",this.newArray);
 }
 
