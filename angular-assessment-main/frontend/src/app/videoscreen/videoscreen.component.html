@@ -21,11 +21,11 @@
         <h2>Bookmarks</h2>
         <button class="btn btn-primary bookmark" (click)="bookmark()">+BookMarks</button>
       </div>
-      <ul>
-        <li *ngFor="let bookmark of bookmarks">
-          <a routerLink="#" (click)="jumpToBookmark(bookmark.time)">{{ bookmark.time }}</a>
-        </li>
-      </ul>
+      <div>
+        <div *ngFor="let bookmark of bookmarks">
+          <button class="btn btn-info" (click)="jumpToBookmark(bookmark.time)">{{ bookmark.time }}</button>
+        </div>
+      </div>
     </div>
   </div>
 
