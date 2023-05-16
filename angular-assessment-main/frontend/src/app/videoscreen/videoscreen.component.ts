@@ -9,10 +9,10 @@ import { AuthService } from '../shared/auth.service';
 })
 export class VideoscreenComponent implements OnInit{
 
-  authtoken=""
-
+  authtoken="";
 
 @ViewChild('videoPlayer') videoplayer: any;
+bookmarks: { name: string, time: number }[] = [];
 public startedPlay:boolean = false;
 public show:boolean = false;
 videos:any= [];
@@ -41,7 +41,7 @@ pauseVideo(videoplayer:any)
         this.show = !this.show;
       }
      }, 5000);
-  // }
+  
 }
 
 getvideolinks(){
@@ -73,5 +73,19 @@ video(id:any){
 
   console.log("newarray",this.newArray);
 }
+
+bookmark() {
+  const currentTime = this.videoplayer.nativeElement.currentTime;
+  const bookmarkName = prompt('Enter a name for the bookmark');
+  if (bookmarkName) {
+    this.bookmarks.push({ name: bookmarkName, time: currentTime });
+  }
+}
+
+jumpToBookmark(time: number) {
+  this.videoplayer.nativeElement.currentTime = time;
+  this.videoplayer.nativeElement.play();
+}
+
 
 }

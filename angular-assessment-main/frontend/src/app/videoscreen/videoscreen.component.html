@@ -9,7 +9,7 @@
     <div class="videopart">
       <div class="popup">
       <p class="name">{{i.name}}</p>
-      <video  controls (canplay)="pauseVideo(videoplayer)"
+      <video  id="videoElement" controls (canplay)="pauseVideo(videoplayer)"
         #videoPlayer>
       <source src="{{i.url}}" type="video/mp4">
       Your browser does not support the video tag.
@@ -19,20 +19,13 @@
     <div class="bookmarks">
       <div class="first">
         <h2>Bookmarks</h2>
-        <button class="btn btn-primary bookmark">+BookMarks</button>
+        <button class="btn btn-primary bookmark" (click)="bookmark()">+BookMarks</button>
       </div>
-      <div class="timeline">
-        <button class="btn btn-info time">01:23</button>
-        <button class="btn btn-info">02:03</button>
-      </div>
-      <div class="timeline">
-        <button class="btn btn-info time">01:23</button>
-        <button class="btn btn-info time">02:03</button>
-      </div>
-      <div class="timeline">
-        <button class="btn btn-info time">01:23</button>
-        <button class="btn btn-info time">02:03</button>
-      </div>
+      <ul>
+        <li *ngFor="let bookmark of bookmarks">
+          <a routerLink="#" (click)="jumpToBookmark(bookmark.time)">{{ bookmark.time }}</a>
+        </li>
+      </ul>
     </div>
   </div>
 
