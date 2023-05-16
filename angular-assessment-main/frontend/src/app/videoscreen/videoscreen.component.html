@@ -19,7 +19,8 @@
     <div class="bookmarks">
       <div class="first">
         <h2>Bookmarks</h2>
-        <button class="btn btn-primary bookmark" (click)="bookmark()">+BookMarks</button>
+        <button class="btn btn-primary bookmark" (click)="savebookmarks(i.id)">+BookMarks</button>
+        <!-- <button class="btn btn-primary bookmark" (click)="getbookmarks(i.id)">+BookMarks</button> -->
       </div>
       <div>
         <div *ngFor="let bookmark of bookmarks">
@@ -28,7 +29,6 @@
       </div>
     </div>
   </div>
-
 </div>
 
 
